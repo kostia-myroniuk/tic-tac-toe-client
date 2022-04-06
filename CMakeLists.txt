@@ -22,6 +22,8 @@ set(PROJECT_SOURCES
         game_dialog.ui
         client.h client.cpp
         connection_settings.h
+        cell.h cell.cpp
+        board.h board.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
