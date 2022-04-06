@@ -13,12 +13,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+find_package(Qt6 COMPONENTS Network REQUIRED)
 
 set(PROJECT_SOURCES
         main.cpp
         game_dialog.cpp
         game_dialog.h
         game_dialog.ui
+        client.h client.cpp
+        connection_settings.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -45,6 +48,7 @@ else()
 endif()
 
 target_link_libraries(tic-tac-toe-client PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(tic-tac-toe-client PRIVATE Qt6::Network)
 
 set_target_properties(tic-tac-toe-client PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
